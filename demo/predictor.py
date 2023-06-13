@@ -54,7 +54,8 @@ class VisualizationDemo(object):
         predictions = self.predictor(image)
         # Convert image from OpenCV BGR format to Matplotlib RGB format.
         image = image[:, :, ::-1]
-        if not self.vis_text:
+        # 读入字典有点问题，修复中
+        if self.vis_text:
             visualizer = TextVisualizer(image, self.metadata, instance_mode=self.instance_mode, cfg=self.cfg)
         else:
             visualizer = Visualizer(image, self.metadata, instance_mode=self.instance_mode)

@@ -71,7 +71,7 @@ if __name__ == "__main__":
     logger.info("Arguments: " + str(args))
 
     cfg = setup_cfg(args)
-    print("cfg: ", cfg)
+    # print("cfg: ", cfg)
 
     demo = VisualizationDemo(cfg)
 
@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 visualized_output.save(out_filename)
             else:
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
-                if cv2.waitKey(1) == 27:
+                if cv2.waitKey(0) == 27:
                     break  # esc to quit
     elif args.webcam:
         assert args.input is None, "Cannot have both --input and --webcam!"
